@@ -49,18 +49,21 @@ tasks.withType(Test) {
 }
 
 task registration_page(type: Test) {
+    systemProperties(System.getProperties())
     useJUnitPlatform {
         includeTags("smoke")
     }
 }
 
 task regressionTest(type: Test) {
+    systemProperties(System.getProperties())
     useJUnitPlatform {
         includeTags("regression")
     }
 }
 
 task negativeTest(type: Test) {
+    systemProperties(System.getProperties())
     useJUnitPlatform {
         includeTags("negative")
     }

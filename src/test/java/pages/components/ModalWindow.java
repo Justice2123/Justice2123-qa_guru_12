@@ -2,6 +2,7 @@ package pages.components;
 
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -28,19 +29,21 @@ public class ModalWindow {
             modalAddress = "Address",
             modalStateCity = "State and City";
 
-
+    @Step("check modal header")
     public ModalWindow checkModalHeader(String value) {
         modalHeader.shouldHave(exactText(value));
 
         return this;
     }
 
+    @Step("check results form {key} : {value}")
     public ModalWindow checkResultTable(String key, String value) {
         modalWindowTable.$(byText(key)).sibling(0).shouldHave(text(value));
 
         return this;
     }
 
+    @Step("if modal window not exist")
     public ModalWindow modalWindowNotExist() {
         modalWindow.shouldNotBe(exist);
 

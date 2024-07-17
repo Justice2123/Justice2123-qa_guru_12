@@ -48,6 +48,13 @@ tasks.withType(Test) {
     }
 }
 
+tasks.withType(Test) {
+        systemProperties(System.getProperties())
+        useJUnitPlatform({
+            includeTags(System.getProperty("type", "tests"))
+        })
+    }
+
 task registration_page(type: Test) {
     systemProperties(System.getProperties())
     useJUnitPlatform {

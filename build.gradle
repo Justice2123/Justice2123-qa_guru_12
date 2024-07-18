@@ -48,7 +48,7 @@ tasks.withType(Test) {
     }
 }
 
-
+//1 вариант в дженкенсе передаем имена тэгов test -Dtype=${TESTS}
 tasks.withType(Test) {
     systemProperties(System.getProperties())
     useJUnitPlatform {
@@ -58,7 +58,7 @@ tasks.withType(Test) {
     }
 }
 
-
+// 2вариант на каждый тэг делаем таску ${TESTS}
 //task smokeTest(type: Test) {
 //    systemProperties(System.getProperties())
 //    useJUnitPlatform {

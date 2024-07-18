@@ -49,23 +49,33 @@ tasks.withType(Test) {
 }
 
 
-task smokeTest(type: Test) {
+tasks.withType(Test) {
     systemProperties(System.getProperties())
     useJUnitPlatform {
-        includeTags("smoke")
+        if (System.getProperty("type") != null && !System.getProperty("type").isEmpty()) {
+            includeTags System.getProperty("type")
+        }
     }
 }
 
-task regressionTest(type: Test) {
-    systemProperties(System.getProperties())
-    useJUnitPlatform {
-        includeTags("regression")
-    }
-}
 
-task negativeTest(type: Test) {
-    systemProperties(System.getProperties())
-    useJUnitPlatform {
-        includeTags("negative")
-    }
-}
+//task smokeTest(type: Test) {
+//    systemProperties(System.getProperties())
+//    useJUnitPlatform {
+//        includeTags("smoke")
+//    }
+//}
+//
+//task regressionTest(type: Test) {
+//    systemProperties(System.getProperties())
+//    useJUnitPlatform {
+//        includeTags("regression")
+//    }
+//}
+//
+//task negativeTest(type: Test) {
+//    systemProperties(System.getProperties())
+//    useJUnitPlatform {
+//        includeTags("negative")
+//    }
+//}

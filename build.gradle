@@ -48,30 +48,24 @@ tasks.withType(Test) {
     }
 }
 
-tasks.withType(Test) {
-        systemProperties(System.getProperties())
-        useJUnitPlatform({
-            includeTags(System.getProperty("type", "tests"))
-        })
-    }
 
-task registration_page(type: Test) {
+task smokeTest(type: Test) {
     systemProperties(System.getProperties())
     useJUnitPlatform {
-        includeTags(System.getProperty("tests", "smoke"))
+        includeTags("smoke")
     }
 }
 
 task regressionTest(type: Test) {
     systemProperties(System.getProperties())
     useJUnitPlatform {
-        includeTags(System.getProperty("tests", "regression"))
+        includeTags("regression")
     }
 }
 
 task negativeTest(type: Test) {
     systemProperties(System.getProperties())
     useJUnitPlatform {
-        includeTags(System.getProperty("tests", "negative"))
+        includeTags("negative")
     }
 }

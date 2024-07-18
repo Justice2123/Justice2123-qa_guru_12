@@ -37,7 +37,7 @@ public class RegistrationPage {
         header.shouldHave(text("Practice Form"));
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
-        executeJavaScript("$('#Ad.Plus-300x250_1')");
+        executeJavaScript("$('#Ad.Plus-')");
     }
 
     @Step("entering Name {value}")
